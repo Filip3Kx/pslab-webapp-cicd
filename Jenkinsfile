@@ -87,11 +87,9 @@ pipeline {
                         sh "docker push ${registry}/${project_id}/${node_image_name}:${BUILD_ID}"
                         sh "docker push ${registry}/${project_id}/${node_image_name}:latest"
                     }
-                    dir('backend') {
-                        sh "docker build -t ${registry}/${project_id}/${python_image_name}:${BUILD_ID} ."
-                        sh "docker push ${registry}/${project_id}/${python_image_name}:${BUILD_ID}"
-                        sh "docker push ${registry}/${project_id}/${python_image_name}:latest"
-                    }
+                    sh "docker build -t ${registry}/${project_id}/${python_image_name}:${BUILD_ID} ."
+                    sh "docker push ${registry}/${project_id}/${python_image_name}:${BUILD_ID}"
+                    sh "docker push ${registry}/${project_id}/${python_image_name}:latest"
                 }
             }
         }
