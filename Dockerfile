@@ -1,7 +1,7 @@
 FROM python:3.6.1
 RUN mkdir /app
 WORKDIR /app
-COPY . .
+COPY .. .
 RUN pip install --upgrade pip
 RUN pip install virtualenv
 RUN virtualenv venv
