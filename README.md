@@ -21,5 +21,6 @@ Had to change a few things because the dependencies of the original were very mu
 ![image](https://github.com/Filip3Kx/pslab-webapp-cicd/assets/114138650/26c39a1b-8c3a-4882-b507-4d75bfb5d7a0)
 
 ### Kubernetes deployment
-![image](https://github.com/Filip3Kx/pslab-webapp-cicd/assets/114138650/4265b22e-0ea7-4496-a4b0-f5cf6e352e49)
+![image](https://github.com/Filip3Kx/pslab-webapp-cicd/assets/114138650/dd80fbe1-f454-41bc-a426-48bf0463d9cd)
+
 
