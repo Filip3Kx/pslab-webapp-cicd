@@ -1,0 +1,33 @@
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: db-pslab
+  labels:
+    app: db-pslab
+spec:
+  serviceName: db
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db-pslab
+  template:
+    metadata:
+      labels:
+        app: db-pslab
+    spec:
+      containers:
+      - name: db-pslab
+        image: postgres:latest
+        env:
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: pslab-secret
+              key: POSTGRES_PASSWORD
+
+        - name: POSTGRES_DB
+          value: main
+        ports:
+        - containerPort: 5432
+

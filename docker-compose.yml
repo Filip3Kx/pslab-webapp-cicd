@@ -1,0 +1,51 @@
+---
+version: '3.2'
+
+services:
+
+  pslab_frontend:
+    image: pslab_frontend
+    build: ./frontend
+    ports:
+      - 80:4200
+    networks:
+      - pslab_net
+    depends_on:
+      - pslab_database
+      - pslab_api
+
+  pslab_api:
+    image: pslab_api
+    build: .
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@172.23.0.2:5432/main
+    ports:
+      - 8000:8000
+    networks:
+      - pslab_net
+    depends_on:
+      - pslab_database
+
+  pslab_database:
+    image: postgres:latest
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=main
+    volumes:
+      - data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      pslab_net:
+        ipv4_address: 172.23.0.2
+
+
+volumes:
+  data:
+
+networks:
+  pslab_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.23.0.0/24

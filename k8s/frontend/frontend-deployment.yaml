@@ -1,0 +1,28 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-pslab
+  labels: 
+    app: frontend-pslab
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: frontend-pslab
+  template:
+    metadata:
+      labels:
+        app: frontend-pslab
+    spec:
+      containers:
+      - name: frontend-pslab
+        image: gcr.io/caramel-compass-393820/pslab_frontend:latest
+        env:
+        - name: API_URL
+          valueFrom:
+            secretKeyRef:
+              name: pslab-secret
+              key: API_URL
+        ports:
+        - containerPort: 4200
