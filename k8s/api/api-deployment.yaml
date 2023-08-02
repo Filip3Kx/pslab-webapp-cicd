@@ -23,6 +23,6 @@ spec:
           valueFrom:
             configMapRef:
               name: pslab-cm
-              key: API_URL
+              key: DATABASE_URL
         ports:
         - containerPort: 8000
