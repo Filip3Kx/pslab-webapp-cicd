@@ -21,8 +21,8 @@ spec:
         env:
         - name: DATABASE_URL
           valueFrom:
-            secretKeyRef:
-              name: pslab-secret
+            configMapRef:
+              name: pslab-cm
               key: API_URL
         ports:
         - containerPort: 8000
