@@ -4,4 +4,4 @@ metadata:
   name: pslab-cm
 data:
   API_URL: <url>
-  DATABASE_URI: <url>
+  DATABASE_URL: <url>
