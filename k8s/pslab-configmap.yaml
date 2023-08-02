@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pslab-cm
+data:
+  API_URL: <url>
+  DATABASE_URI: <url>
