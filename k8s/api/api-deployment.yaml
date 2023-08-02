@@ -21,7 +21,7 @@ spec:
         env:
         - name: DATABASE_URL
           valueFrom:
-            configMapRef:
+            configMapKeyRef:
               name: pslab-cm
               key: DATABASE_URL
         ports:
